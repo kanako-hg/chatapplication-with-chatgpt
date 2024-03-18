@@ -29,7 +29,7 @@ const Login = () => {
         if (error.code === "auth/invalid-credential") {
           alert("そのようなユーザーは存在しません。");
         } else {
-          alert(error.message);
+          console.log(error.message);
         }
       });
   };
