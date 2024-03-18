@@ -82,9 +82,7 @@ const Register = () => {
           )}
         </div>
         <div className="flex justify-end">
-          <button className="bg-green-500 text-white font-bold py-2 px-4 mt-3 rounded hover:bg-green-700">
-            新規登録
-          </button>
+          <button className="btn btn-primary">新規登録</button>
         </div>
         <div className="mt-3">
           <span className="text-gray-600 text-sm">
