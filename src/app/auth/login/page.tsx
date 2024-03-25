@@ -24,7 +24,6 @@ const Login = () => {
     await signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         router.push("/");
-        console.log(userCredential);
       })
       .catch((error) => {
         if (error.code === "auth/invalid-credential") {

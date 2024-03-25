@@ -48,15 +48,14 @@ export function AppProvider({ children }: AppProviderProps) {
     const unsubscribe = onAuthStateChanged(auth, (newUser) => {
       setUser(newUser);
       setUserId(newUser ? newUser.uid : null);
-
-      if (!user) {
+      if (!newUser) {
         router.push("/auth/login");
       }
     });
     return () => {
       unsubscribe();
     };
-  }, []);
+  });
 
   return (
     <AppContext.Provider
