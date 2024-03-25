@@ -112,12 +112,24 @@ export const Chat = () => {
           >
             <div
               className={
-                message.sender === "user"
-                  ? "bg-blue-500 inline-block px-4 py-2 mb-2"
-                  : "bg-green-500 inline-block px-4 py-2 mb-2"
+                message.sender === "user" ? "chat chat-end" : "chat chat-start"
               }
             >
-              <p className="text-white">{message.text}</p>
+              <div
+                className={
+                  message.sender === "user"
+                    ? "bg-indigo-900 chat-bubble"
+                    : "bg-white chat-bubble"
+                }
+              >
+                <p
+                  className={
+                    message.sender === "user" ? "text-white" : "text-indigo-900"
+                  }
+                >
+                  {message.text}
+                </p>
+              </div>
             </div>
           </div>
         ))}

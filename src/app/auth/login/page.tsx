@@ -24,6 +24,7 @@ const Login = () => {
     await signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         router.push("/");
+        console.log(userCredential);
       })
       .catch((error) => {
         if (error.code === "auth/invalid-credential") {
@@ -81,7 +82,7 @@ const Login = () => {
           )}
         </div>
         <div className="flex justify-end">
-          <button className="bg-green-500 text-white font-bold py-2 px-4 mt-3 rounded hover:bg-green-700">
+          <button className="px-6 mt-1 btn btn-outline btn-primary">
             ログイン
           </button>
         </div>
@@ -89,7 +90,7 @@ const Login = () => {
           <span className="text-gray-600 text-sm">初めてのご利用ですか?</span>
           <Link
             href={"/auth/register"}
-            className="text-green-500 text-sm font-bold ml-2 hover:text-green-700"
+            className="text-indigo-600 text-sm font-bold ml-2 hover:text-indigo-900"
           >
             新規登録ページへ
           </Link>

@@ -53,7 +53,6 @@ export function AppProvider({ children }: AppProviderProps) {
         router.push("/auth/login");
       }
     });
-
     return () => {
       unsubscribe();
     };

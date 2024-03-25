@@ -82,7 +82,7 @@ const Register = () => {
           )}
         </div>
         <div className="flex justify-end">
-          <button className="btn btn-primary">新規登録</button>
+          <button className="mt-1 btn btn-outline btn-primary">新規登録</button>
         </div>
         <div className="mt-3">
           <span className="text-gray-600 text-sm">
@@ -90,7 +90,7 @@ const Register = () => {
           </span>
           <Link
             href={"/auth/login"}
-            className="text-green-500 text-sm font-bold ml-2 hover:text-green-700"
+            className="text-indigo-600 text-sm font-bold ml-2 hover:text-indigo-900"
           >
             ログインページへ
           </Link>
