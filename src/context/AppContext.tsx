@@ -10,6 +10,7 @@ import React, {
   useEffect,
   useState,
 } from "react";
+import Loading from "@/app/loading";
 
 type AppProviderProps = {
   children: ReactNode;
@@ -42,9 +43,11 @@ export function AppProvider({ children }: AppProviderProps) {
   const [userId, setUserId] = useState<string | null>(null);
   const [selectedRoom, setSelectedRoom] = useState<string | null>(null);
   const [selectedRoomName, setSelectedRoomName] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const router = useRouter();
 
   useEffect(() => {
+    setIsLoading(false);
     const unsubscribe = onAuthStateChanged(auth, (newUser) => {
       setUser(newUser);
       setUserId(newUser ? newUser.uid : null);
@@ -55,8 +58,11 @@ export function AppProvider({ children }: AppProviderProps) {
     return () => {
       unsubscribe();
     };
-  });
+  }, []);
 
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <AppContext.Provider
       value={{
