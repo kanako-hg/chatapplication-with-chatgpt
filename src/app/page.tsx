@@ -4,8 +4,15 @@ import { Sidebar } from "./components/Sidebar";
 import { Chat } from "./components/Chat";
 import { useAppContext } from "@/context/AppContext";
 
-export default function Home() {
+const sleep = (msec: number) =>
+  new Promise((resolve) => setTimeout(resolve, msec));
+
+export default async function Home() {
   const { user } = useAppContext();
+
+  if (!user) {
+    await sleep(3000);
+  }
 
   return (
     <div className="flex h-screen justify-center items-center">
