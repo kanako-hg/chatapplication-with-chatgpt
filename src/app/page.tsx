@@ -10,9 +10,7 @@ const sleep = (msec: number) =>
 export default async function Home() {
   const { user } = useAppContext();
 
-  if (!user) {
-    await sleep(3000);
-  }
+  await sleep(3000);
 
   return (
     <div className="flex h-screen justify-center items-center">
