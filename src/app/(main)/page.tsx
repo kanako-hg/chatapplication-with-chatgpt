@@ -1,7 +1,7 @@
 "use client";
 
-import { Sidebar } from "./components/Sidebar";
-import { Chat } from "./components/Chat";
+import { Sidebar } from "../components/Sidebar";
+import { Chat } from "../components/Chat";
 import { useAppContext } from "@/context/AppContext";
 
 export default function Home() {

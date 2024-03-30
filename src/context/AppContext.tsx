@@ -47,12 +47,13 @@ export function AppProvider({ children }: AppProviderProps) {
   const router = useRouter();
 
   useEffect(() => {
-    setIsLoading(false);
     const unsubscribe = onAuthStateChanged(auth, (newUser) => {
       setUser(newUser);
       setUserId(newUser ? newUser.uid : null);
       if (!newUser) {
-        router.push("/auth/login");
+        router.push("auth/login");
+      } else {
+        setIsLoading(false);
       }
     });
     return () => {
@@ -62,24 +63,24 @@ export function AppProvider({ children }: AppProviderProps) {
 
   if (isLoading) {
     return <Loading />;
+  } else {
+    return (
+      <AppContext.Provider
+        value={{
+          user,
+          userId,
+          setUser,
+          selectedRoom,
+          setSelectedRoom,
+          selectedRoomName,
+          setSelectedRoomName,
+        }}
+      >
+        {children}
+      </AppContext.Provider>
+    );
   }
-  return (
-    <AppContext.Provider
-      value={{
-        user,
-        userId,
-        setUser,
-        selectedRoom,
-        setSelectedRoom,
-        selectedRoomName,
-        setSelectedRoomName,
-      }}
-    >
-      {children}
-    </AppContext.Provider>
-  );
 }
-
 export function useAppContext() {
   return useContext(AppContext);
 }
